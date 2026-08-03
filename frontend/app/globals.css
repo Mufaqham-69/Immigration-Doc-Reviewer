@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink font-body;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.brass");
+    outline-offset: 2px;
+  }
+}
+
+/* Signature element: the case-status stamp. Styled like an ink visa stamp -
+   double border, uppercase mono type, a slight hand-stamped rotation. */
+.stamp {
+  @apply inline-flex items-center gap-1.5 border-2 rounded-sm px-2.5 py-1
+         font-mono text-[11px] uppercase tracking-wider font-semibold;
+  transform: rotate(-1.5deg);
+}
+.stamp::before {
+  content: "";
+  @apply w-1.5 h-1.5 rounded-full;
+  background: currentColor;
+}
+.stamp-ready {
+  @apply text-sage bg-sage-bg border-sage;
+}
+.stamp-attention {
+  @apply text-amber bg-amber-bg border-amber;
+}
+.stamp-blocked {
+  @apply text-brick bg-brick-bg border-brick;
+}
