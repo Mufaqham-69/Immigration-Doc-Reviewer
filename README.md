@@ -1,12 +1,5 @@
 # Casefile — Immigration Document & Visa Eligibility Reviewer
 
-Concept 7 from your catalog, built out. An immigration law firm uploads client
-documents (passports, I-797 notices, employment letters, degree certificates...),
-the agent OCRs and classifies each one, cross-references the full set against
-the visa category's requirements, and hands the attorney a one-page briefing:
-a timeline, a flagged checklist, and a plain-language summary — not a legal
-opinion, a head start on the manual review.
-
 ## What's actually here
 
 - **Backend** (`/backend`) — FastAPI + Celery/Redis + Postgres. The agent
