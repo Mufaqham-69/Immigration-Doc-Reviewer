@@ -20,6 +20,9 @@ services:
   api:
     build: ./backend
     env_file: ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@postgres:5432/immigration_reviewer
+      - REDIS_URL=redis://redis:6379/0
     ports:
       - "8000:8000"
     volumes:
@@ -33,6 +36,9 @@ services:
     build: ./backend
     command: celery -A app.workers.celery_app worker --loglevel=info
     env_file: ./backend/.env
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@postgres:5432/immigration_reviewer
+      - REDIS_URL=redis://redis:6379/0
     volumes:
       - ./backend:/app
       - uploads:/app/uploads
